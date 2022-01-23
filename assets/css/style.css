@@ -12,6 +12,8 @@ body {
     background-color: #13293d;
     color: #fff;
     height: 100px;
+    margin: 15px 15px 0px 15px;
+    border-radius: 10px;
   }
   
   h1,
@@ -47,6 +49,7 @@ body {
     height: 50%;
     border: 2px solid silver;
     padding: 10px 5px 10px 5px;
+    border-radius: 10px;
 
   }
 
