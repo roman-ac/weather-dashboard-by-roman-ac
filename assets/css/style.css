@@ -63,3 +63,7 @@ body {
   .display1 {
       margin-top: 35px;
   }
+
+  .col {
+    font-size: 14px;
+  }
