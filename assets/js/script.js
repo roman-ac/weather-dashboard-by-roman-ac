@@ -8,6 +8,8 @@ var searchCity = document.querySelector(".container1");
 var cityNameEl = document.querySelector(".cityName");
 var cityName = "";
 var today = moment().format("MMM DD, YYYY");
+var savedCity = [];
+
 
 
 
@@ -16,16 +18,35 @@ var formSubmitHandler = function (event) {
   
     cityName = nameInputEl.value;
     console.log(cityName);
-    if (cityName) {
+    
+    if (cityName)  {
       cityWeather(cityName);
       var buttonEl = document.createElement("button");
       buttonEl.classList.add("btn", "btn-secondary");
       buttonEl.setAttribute("style", "width: 100%; margin-top:5px;");
       buttonEl.textContent = cityName;
       cityList.appendChild(buttonEl);
+      nameInputEl.value = '';
+      savedCity.push(cityName);
+      localStorage.setItem("cityName", JSON.stringify(savedCity));
     }
+    
+  };
 
-    };
+  displayCity ();
+  function displayCity () {
+    var cityEl = JSON.parse(localStorage.getItem("cityName"));
+
+    //for (i=0; i < cityEl.length; i++) {
+
+      var buttonEl = document.createElement("button");
+      buttonEl.classList.add("btn", "btn-secondary");
+      buttonEl.setAttribute("style", "width: 100%; margin-top:5px;");
+      buttonEl.textContent = cityEl;
+      cityList.appendChild(buttonEl);
+    //}
+
+  };
   
   searchBtnEl.addEventListener('click', formSubmitHandler);
 
@@ -90,7 +111,7 @@ var formSubmitHandler = function (event) {
     if (icons = "clouds") {
 
       var cloudy0 = document.querySelector(".icon0");
-      cloudy0.textContent = "  "+"&#xf73b;";
+      //cloudy0.textContent = "  "+"116;";
 
     }
   };
